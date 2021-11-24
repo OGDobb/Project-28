@@ -43,6 +43,12 @@ function draw() {
   rectMode(CENTER);
   background("#ffffff");
   
+detectcollision(stoneObj,mango1);
+detectcollision(stoneObj,mango2);
+detectcollision(stoneObj,mango3);
+detectcollision(stoneObj,mango4);
+detectcollision(stoneObj,mango5);
+
   tree.display();
   stone.display();
   ground.display();
@@ -60,4 +66,11 @@ function mouseDragged(){
 	
 	function mouseReleased(){
 	slingshot.fly();
+	}
+
+	function mousePressed(){
+		if(keyCode===32){
+			Matter.Body.setPosition(stoneObj.body,(x:235, y:420));
+			launcherObject.attach(stoneObj.body);
+		}
 	}
