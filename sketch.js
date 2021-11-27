@@ -25,7 +25,7 @@ function setup() {
 	//Create the Bodies Here.
 	tree = new Tree(800, 500, 200, 300);
 
-	stone = new Stone(400,500,50,50);
+	stone = new Stone(400,550,50,50);
 
 	slingshot = new SlingShot(stone.body,{x:400, y:550});
 
@@ -33,9 +33,13 @@ function setup() {
 
 	boy = new Boy(400,590,100,200);
 	//boy.addImage("boy", boyImg);
-	boy = boyImg;
+	//boy = boyImg;
 
-	mango1 = new Mango(850, 450, 50);
+	mango1 = new Mango(random(700, 890), random(350, 500), 50);
+	mango2 = new Mango(random(700, 890), random(350, 500), 50);
+	mango3 = new Mango(random(700, 890), random(350, 500), 50);
+	mango4 = new Mango(random(700, 890), random(350, 500), 50);
+	mango5 = new Mango(random(700, 890), random(350, 500), 50);
 
 	Engine.run(engine);
   
@@ -52,22 +56,28 @@ detectCollision(stone,mango3);
 detectCollision(stone,mango4);
 detectCollision(stone,mango5);
 
+  boy.display();
   tree.display();
   stone.display();
   ground.display();
-  boy.display();
+  mango1.display();
+  mango2.display();
+  mango3.display();
+  mango4.display();
+  mango5.display();
 
   drawSprites();
-mousePressed();
-mouseReleased();
-mouseDragged();
+
+	mousePressed();
+	mouseReleased();
+	//mouseDragged();
 }
 
 
 
-function mouseDragged(){
-	Matter.Body.setPosition(stone.body,{x:mouseX,y:mouseY});
-	}
+// function mouseDragged(){
+// 	Matter.Body.setPosition(stone.body,{x:mouseX,y:mouseY});
+// 	}
 	
 	function mouseReleased(){
 	slingshot.fly();
@@ -76,7 +86,7 @@ function mouseDragged(){
 	function mousePressed(){
 		if(keyCode===32){
 			Matter.Body.setPosition(stone.body,{x:235, y:420});
-			launcherObject.attach(stone.body);
+			slingshot.attach(stone.body);
 		}
 	}
 

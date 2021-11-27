@@ -9,7 +9,7 @@ class Boy{
         this.image = loadImage("sprites/boy.png");
         World.add(world, this.body);
       }
-      display(){
+      display() {
         var angle = this.body.angle;
         push();
         translate(this.body.position.x, this.body.position.y);
